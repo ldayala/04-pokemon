@@ -1,5 +1,9 @@
 <template>
   <div class="pokemon-container">
+    <div class="vidas">
+      <h2>Vidas</h2>
+    <span>{{vidas}}</span>
+    </div>
     <img :src="imgSrc" alt="pokemon" class="hidden-pokemon" />
     <img
       :src="imgSrc"
@@ -18,8 +22,13 @@ export default {
       type:Number,
       required:true
     },
+    vidas:{
+      type:Number
+    },
+    puntos:Number,
     showPokemon:false
   },
+
   computed: {
     imgSrc() {
       return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.pokemonId}.svg`;
@@ -35,6 +44,22 @@ export default {
   display: flex;
   justify-content: center;
 }
+.vidas{
+  position: absolute;
+  top: 60px;
+  right: 300px;
+  
+}
+.vidas h2{
+  text-transform: uppercase;
+  color:darkorange ;
+}
+.vidas span{
+font-size: 32px;
+font-weight: 600;
+color: darkorange;
+}
+
 img {
   height: 200px;
   position: absolute;
