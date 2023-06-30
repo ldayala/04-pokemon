@@ -2,7 +2,9 @@
   <div class="pokemon-container">
     <div class="vidas">
       <h2>Vidas</h2>
-    <span>{{vidas}}</span>
+      <span>{{vidas}}</span>
+       <h2>Puntos</h2>
+       <span>{{puntos}}</span>
     </div>
     <img :src="imgSrc" alt="pokemon" class="hidden-pokemon" />
     <img
