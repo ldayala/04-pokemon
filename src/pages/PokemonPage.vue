@@ -45,6 +45,8 @@ export default {
     },
 
     getAnswer(e) {
+      this.showAnswer = true;
+      this.showPokemon = true;
       if (this.pokemon.id == e) {
         this.message = `Correctly the pokemon's name id ${this.pokemon.name}`;
         this.puntos += 1;
@@ -58,17 +60,13 @@ export default {
           this.btnValue = "Avanzar";
         }
       }
-
-      this.showAnswer = true;
-      this.showPokemon = true;
     },
 
     newGame() {
-        this.vidas == 0 ? this.resetearValores(true) : this.resetearValores();
-         },
+      this.vidas == 0 ? this.resetearValores(true) : this.resetearValores();
+    },
 
     resetearValores(game = false) {
-     
       this.pokemonArr = [];
       this.pokemon = null;
       this.showPokemon = false;
@@ -84,7 +82,6 @@ export default {
   },
   mounted() {
     this.mixPokemonArray();
-   
   },
 };
 </script>

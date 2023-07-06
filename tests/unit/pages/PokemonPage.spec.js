@@ -69,4 +69,33 @@ describe('PokemonPage Component', () => {
         expect(wrapper.find('pokemon-options-stub').attributes('pokemons')).toBeTruthy()
     });
 
+    test('pruebas con checkanswer', async() => {
+        const wrapper= shallowMount(PokemonPage,{
+            data() {
+                return {
+                    pokemonArr:mockPokemon,
+                    pokemon: mockPokemon[0],
+                    showPokemon: false,
+                    showAnswer: false,
+                    message: "",
+                    vidas: 5,
+                    puntos: 0,
+                    btnValue: "Avanzar",
+                }
+            }
+        })
+        //await porque se renderiuza el dom en dependencia de este metdodo llamado
+         await   wrapper.vm.getAnswer(1)
+        expect(wrapper.vm.showPokemon).toBe(true)
+        expect(wrapper.vm.showAnswer).toBe(true)
+
+        expect(wrapper.find('h2').exists()).toBeTruthy()
+        expect(wrapper.find('h2').text()).toBe(`Correctly the pokemon's name id ${mockPokemon[0].name}`)
+
+        await wrapper.vm.getAnswer(3)
+        expect(wrapper.vm.message).toBe(`Uppps the pokemon's name id ${mockPokemon[0].name}`)
+
+        
+    });
+
 });
